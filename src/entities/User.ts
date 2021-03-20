@@ -5,7 +5,7 @@ import {
   BeforeInsert,
   BaseEntity,
 } from "typeorm";
-import { uuid } from "uuidv4";
+import { v4 as uuid_v4 } from "uuid";
 
 @Entity("users")
 export class User extends BaseEntity {
@@ -17,6 +17,6 @@ export class User extends BaseEntity {
 
   @BeforeInsert()
   addId() {
-    this.id = uuid();
+    this.id = uuid_v4();
   }
 }
